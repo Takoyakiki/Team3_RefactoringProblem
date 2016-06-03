@@ -11,9 +11,9 @@ import com.nts.cleancode.collections.List;
 import com.nts.cleancode.collections.Set;
 
 public class ListTest {
-	private List empty;
+	private AbstractCollection empty;
 	private List oneElement;
-	private List manyElement;
+	private AbstractCollection manyElement;
 
 	@Before
 	public void setUp() {
@@ -75,7 +75,7 @@ public class ListTest {
 
 	@Test
 	public void addAllWithSet() {
-		Set smallSet = new Set();
+		AbstractCollection smallSet = new Set();
 		smallSet.add("Dave");
 		oneElement.addAll(smallSet);
 		assertEquals(2, oneElement.size());

@@ -74,7 +74,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithList() {
-		List list = new List();
+		AbstractCollection list = new List();
 		list.add("dave");
 		oneElement.addAll(list);
 		assertEquals(2, oneElement.size());
@@ -82,7 +82,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithDuplicates() {
-		Set newSet = new Set();
+		AbstractCollection newSet = new Set();
 		newSet.add("josh");
 		manyElement.addAll(newSet);
 		assertEquals(2, manyElement.size());
@@ -90,7 +90,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithDuplicatesInList() {
-		List newList = new List();
+		AbstractCollection newList = new List();
 		newList.add("josh");
 		manyElement.addAll(newList);
 		assertEquals(2, manyElement.size());
