@@ -8,25 +8,16 @@ public abstract class AbstractCollection {
 
 	public abstract void add(Object element);
 
-	public void addAll(AbstractCollection c) {
-		if (c instanceof Set) {
-			AbstractCollection s = (AbstractCollection)c;
-			for (int i=0; i < s.size(); i++) {
-				if (!contains(s.get(i))) {
-					add(s.get(i));
-				}
-			}
-			
-		} else if (c instanceof List) {
-			AbstractCollection l = (AbstractCollection)c;
-			for (int i=0; i < l.size(); i++) {
-				if (!contains(l.get(i))) {
-					add(l.get(i));
-				}
+	public void addAll(AbstractCollection collection) {
+		AbstractCollection l = (AbstractCollection) collection;
+		for (int i = 0; i < l.size(); i++) {
+			if (!contains(l.get(i))) {
+				add(l.get(i));
 			}
 		}
+
 	}
-	
+
 	public void add(Object key, Object value) {
 	}
 
@@ -41,7 +32,7 @@ public abstract class AbstractCollection {
 	public boolean remove(Object element) {
 		if (readOnly)
 			return false;
-		else 	
+		else
 			for (int i = 0; i < size; i++)
 				if (elements[i].equals(element)) {
 					elements[i] = null;
@@ -63,7 +54,7 @@ public abstract class AbstractCollection {
 	}
 
 	public boolean contains(Object element) {
-		for (int i=0; i<size; i++) 
+		for (int i = 0; i < size; i++)
 			if (elements[i].equals(element))
 				return true;
 		return false;
