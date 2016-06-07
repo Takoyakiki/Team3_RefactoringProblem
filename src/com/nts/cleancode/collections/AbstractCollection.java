@@ -12,8 +12,8 @@ public abstract class AbstractCollection {
 		if (c instanceof Set) {
 			AbstractCollection s = (AbstractCollection)c;
 			for (int i=0; i < s.size(); i++) {
-				if (!contains(s.getElementAt(i))) {
-					add(s.getElementAt(i));
+				if (!contains(s.get(i))) {
+					add(s.get(i));
 				}
 			}
 			
@@ -71,10 +71,6 @@ public abstract class AbstractCollection {
 
 	public int capacity() {
 		return elements.length;
-	}
-
-	public Object getElementAt(int index) {
-		return elements[index];
 	}
 
 	public void setReadOnly(boolean b) {
