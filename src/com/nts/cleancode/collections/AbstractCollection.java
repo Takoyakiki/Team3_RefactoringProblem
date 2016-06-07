@@ -4,16 +4,13 @@ public abstract class AbstractCollection {
 	protected static int INITIAL_CAPACITY = 10;
 	protected Object[] elements = new Object[INITIAL_CAPACITY];
 	protected int size = 0;
-
-	public abstract boolean contains(Object element);
+	protected boolean readOnly;
 
 	public abstract void add(Object element);
 
-	protected boolean readOnly;
-
 	public void addAll(AbstractCollection c) {
 		if (c instanceof Set) {
-			Set s = (Set)c;
+			AbstractCollection s = (AbstractCollection)c;
 			for (int i=0; i < s.size(); i++) {
 				if (!contains(s.getElementAt(i))) {
 					add(s.getElementAt(i));
@@ -63,6 +60,25 @@ public abstract class AbstractCollection {
 
 	public Object get(int i) {
 		return elements[i];
+	}
+
+	public boolean contains(Object element) {
+		for (int i=0; i<size; i++) 
+			if (elements[i].equals(element))
+				return true;
+		return false;
+	}
+
+	public int capacity() {
+		return elements.length;
+	}
+
+	public Object getElementAt(int index) {
+		return elements[index];
+	}
+
+	public void setReadOnly(boolean b) {
+		readOnly = b;
 	}
 
 }

@@ -10,9 +10,9 @@ import com.nts.cleancode.collections.List;
 import com.nts.cleancode.collections.Set;
 
 public class SetTest {
-	private Set empty;
-	private Set oneElement;
-	private Set manyElement;
+	private AbstractCollection empty;
+	private AbstractCollection oneElement;
+	private AbstractCollection manyElement;
 
 	@Before
 	public void setUp() {
@@ -103,7 +103,7 @@ public class SetTest {
 
 	@Test
 	public void expandability() {
-		Set expandableSet = new Set();
+		AbstractCollection expandableSet = new Set();
 		assertEquals(10, expandableSet.capacity());
 		for (int i = 0; i < 11; i++)
 			expandableSet.add(i);

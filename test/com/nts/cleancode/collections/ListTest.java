@@ -88,7 +88,7 @@ public class ListTest {
 
 	@Test
 	public void expandability() {
-		List expandableList = new List();
+		AbstractCollection expandableList = new List();
 		assertEquals(10, expandableList.capacity());
 		for (int i = 0; i < 11; i++)
 			expandableList.add(i);

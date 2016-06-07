@@ -17,23 +17,4 @@ public class Set extends AbstractCollection {
 			elements[size++] = element;
 		}
 	}
-
-	public boolean contains(Object element) {
-		for (int i = 0; i < size; i++)
-			if (elements[i].equals(element))
-				return true;
-		return false;
-	}
-
-	public Object getElementAt(int index) {
-		return elements[index];
-	}
-
-	public int capacity() {
-		return elements.length;
-	}
-
-	public void setReadOnly(boolean b) {
-		readOnly = b;
-	}
 }
