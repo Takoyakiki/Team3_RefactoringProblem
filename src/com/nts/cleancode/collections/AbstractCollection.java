@@ -9,10 +9,9 @@ public abstract class AbstractCollection {
 	public abstract void add(Object element);
 
 	public void addAll(AbstractCollection collection) {
-		AbstractCollection l = (AbstractCollection) collection;
-		for (int i = 0; i < l.size(); i++) {
-			if (!contains(l.get(i))) {
-				add(l.get(i));
+		for (int i = 0; i < (collection).size(); i++) {
+			if (!contains((collection).get(i))) {
+				add((collection).get(i));
 			}
 		}
 
