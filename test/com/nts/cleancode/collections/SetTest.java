@@ -10,9 +10,9 @@ import com.nts.cleancode.collections.List;
 import com.nts.cleancode.collections.Set;
 
 public class SetTest {
-	private AbstractCollection empty;
-	private AbstractCollection oneElement;
-	private AbstractCollection manyElement;
+	private Set empty;
+	private Set oneElement;
+	private Set manyElement;
 
 	@Before
 	public void setUp() {
@@ -63,7 +63,7 @@ public class SetTest {
 		assertEquals(3, manyElement.size());
 		manyElement.remove("sasha");
 		assertEquals(2, manyElement.size());
-		assertEquals("tracy", manyElement.get(1));
+		assertEquals("tracy", manyElement.getElementAt(1));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithList() {
-		AbstractCollection list = new List();
+		List list = new List();
 		list.add("dave");
 		oneElement.addAll(list);
 		assertEquals(2, oneElement.size());
@@ -82,7 +82,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithDuplicates() {
-		AbstractCollection newSet = new Set();
+		Set newSet = new Set();
 		newSet.add("josh");
 		manyElement.addAll(newSet);
 		assertEquals(2, manyElement.size());
@@ -90,7 +90,7 @@ public class SetTest {
 
 	@Test
 	public void addAllWithDuplicatesInList() {
-		AbstractCollection newList = new List();
+		List newList = new List();
 		newList.add("josh");
 		manyElement.addAll(newList);
 		assertEquals(2, manyElement.size());
@@ -98,12 +98,12 @@ public class SetTest {
 
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void getWhenIndexOutOfBounds() {
-		empty.get(12);
+		empty.getElementAt(12);
 	}
 
 	@Test
 	public void expandability() {
-		AbstractCollection expandableSet = new Set();
+		Set expandableSet = new Set();
 		assertEquals(10, expandableSet.capacity());
 		for (int i = 0; i < 11; i++)
 			expandableSet.add(i);

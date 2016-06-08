@@ -11,9 +11,9 @@ import com.nts.cleancode.collections.List;
 import com.nts.cleancode.collections.Set;
 
 public class ListTest {
-	private AbstractCollection empty;
+	private List empty;
 	private List oneElement;
-	private AbstractCollection manyElement;
+	private List manyElement;
 
 	@Before
 	public void setUp() {
@@ -75,7 +75,7 @@ public class ListTest {
 
 	@Test
 	public void addAllWithSet() {
-		AbstractCollection smallSet = new Set();
+		Set smallSet = new Set();
 		smallSet.add("Dave");
 		oneElement.addAll(smallSet);
 		assertEquals(2, oneElement.size());
@@ -88,7 +88,7 @@ public class ListTest {
 
 	@Test
 	public void expandability() {
-		AbstractCollection expandableList = new List();
+		List expandableList = new List();
 		assertEquals(10, expandableList.capacity());
 		for (int i = 0; i < 11; i++)
 			expandableList.add(i);
