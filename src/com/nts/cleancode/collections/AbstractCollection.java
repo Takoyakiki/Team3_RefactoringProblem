@@ -17,9 +17,6 @@ public abstract class AbstractCollection {
 
 	}
 
-	public void add(Object key, Object value) {
-	}
-
 	public boolean isEmpty() {
 		return size == 0;
 	}
